@@ -1,0 +1,53 @@
+{
+  "targets": ["vividfx:bright", "vividfx:blur"],
+  "passes": [
+    {
+      "name": "vividfx_bright",
+      "intarget": "minecraft:main",
+      "outtarget": "vividfx:bright",
+      "uniforms": [
+        { "name": "Threshold", "values": [0.78] },
+        { "name": "Gain", "values": [1.10] }
+      ]
+    },
+    {
+      "name": "blur",
+      "intarget": "vividfx:bright",
+      "outtarget": "vividfx:blur",
+      "uniforms": [
+        { "name": "BlurDir", "values": [1.0, 0.0] },
+        { "name": "Radius", "values": [1.0] }
+      ]
+    },
+    {
+      "name": "blur",
+      "intarget": "vividfx:blur",
+      "outtarget": "vividfx:bright",
+      "uniforms": [
+        { "name": "BlurDir", "values": [0.0, 1.0] },
+        { "name": "Radius", "values": [1.0] }
+      ]
+    },
+    {
+      "name": "vividfx_combine",
+      "intarget": "minecraft:main",
+      "outtarget": "vividfx:blur",
+      "auxtargets": [
+        { "name": "BloomSampler", "id": "vividfx:bright" }
+      ],
+      "uniforms": [
+        { "name": "BloomStrength", "values": [0.42] }
+      ]
+    },
+    {
+      "name": "vividfx_grade",
+      "intarget": "vividfx:blur",
+      "outtarget": "minecraft:main",
+      "uniforms": [
+        { "name": "Contrast", "values": [1.08] },
+        { "name": "Saturation", "values": [1.06] },
+        { "name": "Brightness", "values": [1.015] }
+      ]
+    }
+  ]
+}
