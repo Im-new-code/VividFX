@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "VividFX",
   "description": "Lightweight Shine-style bloom and cinematic color grading for Minecraft 1.17.1.",
-  "authors": ["DibakarNandy"],
+  "authors": ["VoidGlassMC"],
   "license": "CC0-1.0",
   "environment": "client",
   "entrypoints": {
